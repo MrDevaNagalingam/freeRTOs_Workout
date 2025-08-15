@@ -1,0 +1,52 @@
+19:07:56 **** Incremental Build of configuration Debug for project Relay ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:7: warning: implicit declaration of function 'relay_on' [-Wimplicit-function-declaration]
+  106 |       relay_on();
+      |       ^~~~~~~~
+../Core/Src/main.c:108:7: warning: implicit declaration of function 'relay_off' [-Wimplicit-function-declaration]
+  108 |       relay_off();
+      |       ^~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:126:6: warning: conflicting types for 'relay_on'
+  126 | void relay_on(void)
+      |      ^~~~~~~~
+../Core/Src/main.c:106:7: note: previous implicit declaration of 'relay_on' was here
+  106 |       relay_on();
+      |       ^~~~~~~~
+../Core/Src/main.c: In function 'relay_on':
+../Core/Src/main.c:129:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  129 |     printf("Relay ON \n");
+      |     ^~~~~~
+../Core/Src/main.c:129:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:132:6: warning: conflicting types for 'relay_off'
+  132 | void relay_off(void)
+      |      ^~~~~~~~~
+../Core/Src/main.c:108:7: note: previous implicit declaration of 'relay_off' was here
+  108 |       relay_off();
+      |       ^~~~~~~~~
+../Core/Src/main.c: In function 'relay_off':
+../Core/Src/main.c:135:5: warning: incompatible implicit declaration of built-in function 'printf'
+  135 |     printf("Relay OFF\n");
+      |     ^~~~~~
+../Core/Src/main.c:135:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "Relay.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/Relay/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Relay.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Relay.elf
+ 
+arm-none-eabi-size   Relay.elf 
+arm-none-eabi-objdump -h -S  Relay.elf  > "Relay.list"
+   text	   data	    bss	    dec	    hex	filename
+  11660	    120	   1656	  13436	   347c	Relay.elf
+Finished building: default.size.stdout
+ 
+Finished building: Relay.list
+ 
+
+19:07:56 Build Finished. 0 errors, 7 warnings. (took 982ms)
+
