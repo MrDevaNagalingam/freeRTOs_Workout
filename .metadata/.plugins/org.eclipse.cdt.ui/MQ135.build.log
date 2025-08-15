@@ -1,0 +1,37 @@
+19:39:26 **** Incremental Build of configuration Debug for project MQ135 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:106:4: warning: implicit declaration of function 'mq135' [-Wimplicit-function-declaration]
+  106 |    mq135();
+      |    ^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:289:6: warning: conflicting types for 'mq135'
+  289 | void mq135(void){
+      |      ^~~~~
+../Core/Src/main.c:106:4: note: previous implicit declaration of 'mq135' was here
+  106 |    mq135();
+      |    ^~~~~
+../Core/Src/main.c: In function 'mq135':
+../Core/Src/main.c:295:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  295 |     printf("ADC: %lu  Voltage: %.2f V\r\n", adc_value, voltage);
+      |     ^~~~~~
+../Core/Src/main.c:295:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+arm-none-eabi-gcc -o "MQ135.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/MQ135/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ135.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MQ135.elf
+ 
+arm-none-eabi-size   MQ135.elf 
+arm-none-eabi-objdump -h -S  MQ135.elf  > "MQ135.list"
+   text	   data	    bss	    dec	    hex	filename
+  34312	    488	   1736	  36536	   8eb8	MQ135.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ135.list
+ 
+
+19:39:27 Build Finished. 0 errors, 4 warnings. (took 1s.84ms)
+
