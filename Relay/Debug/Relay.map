@@ -109,6 +109,33 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
+ .group         0x0000000000000000        0xc ./Core/Src/main.o
  .text          0x0000000000000000        0x0 ./Core/Src/main.o
  .data          0x0000000000000000        0x0 ./Core/Src/main.o
  .bss           0x0000000000000000        0x0 ./Core/Src/main.o
@@ -340,8 +367,33 @@ Discarded input sections
  .text._execve  0x0000000000000000       0x22 ./Core/Src/syscalls.o
  .debug_macro   0x0000000000000000      0xa78 ./Core/Src/syscalls.o
  .debug_macro   0x0000000000000000       0x22 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x1e ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x3c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x34 ./Core/Src/syscalls.o
  .debug_macro   0x0000000000000000      0x174 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000      0x341 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x43 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x34 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x58 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x71 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000      0x12a ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x35 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/syscalls.o
  .debug_macro   0x0000000000000000       0x6a ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0xd5 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x3d ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000000000      0x145 ./Core/Src/syscalls.o
  .group         0x0000000000000000        0xc ./Core/Src/sysmem.o
  .group         0x0000000000000000        0xc ./Core/Src/sysmem.o
  .group         0x0000000000000000        0xc ./Core/Src/sysmem.o
@@ -3099,35 +3151,35 @@ LOAD /opt/st/stm32cubeide_1.11.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
 LOAD /opt/st/stm32cubeide_1.11.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /opt/st/stm32cubeide_1.11.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000     0x8da6
- .debug_info    0x0000000000000000      0xfe5 ./Core/Src/main.o
- .debug_info    0x0000000000000fe5      0x9b6 ./Core/Src/stm32f4xx_hal_msp.o
- .debug_info    0x000000000000199b      0x121 ./Core/Src/stm32f4xx_it.o
- .debug_info    0x0000000000001abc      0x6e0 ./Core/Src/syscalls.o
- .debug_info    0x000000000000219c      0x171 ./Core/Src/sysmem.o
- .debug_info    0x000000000000230d      0x55b ./Core/Src/system_stm32f4xx.o
- .debug_info    0x0000000000002868       0x22 ./Core/Startup/startup_stm32f446retx.o
- .debug_info    0x000000000000288a      0x9d2 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_info    0x000000000000325c      0xe39 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_info    0x0000000000004095      0x7be ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_info    0x0000000000004853      0x9ab ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_info    0x00000000000051fe      0x9ec ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
- .debug_info    0x0000000000005bea     0x31bc ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+.debug_info     0x0000000000000000     0x8d3e
+ .debug_info    0x0000000000000000      0xf7d ./Core/Src/main.o
+ .debug_info    0x0000000000000f7d      0x9b6 ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_info    0x0000000000001933      0x121 ./Core/Src/stm32f4xx_it.o
+ .debug_info    0x0000000000001a54      0x6e0 ./Core/Src/syscalls.o
+ .debug_info    0x0000000000002134      0x171 ./Core/Src/sysmem.o
+ .debug_info    0x00000000000022a5      0x55b ./Core/Src/system_stm32f4xx.o
+ .debug_info    0x0000000000002800       0x22 ./Core/Startup/startup_stm32f446retx.o
+ .debug_info    0x0000000000002822      0x9d2 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_info    0x00000000000031f4      0xe39 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_info    0x000000000000402d      0x7be ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_info    0x00000000000047eb      0x9ab ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_info    0x0000000000005196      0x9ec ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
+ .debug_info    0x0000000000005b82     0x31bc ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 
-.debug_abbrev   0x0000000000000000     0x175e
- .debug_abbrev  0x0000000000000000      0x324 ./Core/Src/main.o
- .debug_abbrev  0x0000000000000324      0x1b0 ./Core/Src/stm32f4xx_hal_msp.o
- .debug_abbrev  0x00000000000004d4       0x74 ./Core/Src/stm32f4xx_it.o
- .debug_abbrev  0x0000000000000548      0x1b3 ./Core/Src/syscalls.o
- .debug_abbrev  0x00000000000006fb       0xbb ./Core/Src/sysmem.o
- .debug_abbrev  0x00000000000007b6      0x116 ./Core/Src/system_stm32f4xx.o
- .debug_abbrev  0x00000000000008cc       0x12 ./Core/Startup/startup_stm32f446retx.o
- .debug_abbrev  0x00000000000008de      0x20d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_abbrev  0x0000000000000aeb      0x316 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_abbrev  0x0000000000000e01      0x1c4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_abbrev  0x0000000000000fc5      0x2aa ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_abbrev  0x000000000000126f      0x1fb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
- .debug_abbrev  0x000000000000146a      0x2f4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+.debug_abbrev   0x0000000000000000     0x1754
+ .debug_abbrev  0x0000000000000000      0x31a ./Core/Src/main.o
+ .debug_abbrev  0x000000000000031a      0x1b0 ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_abbrev  0x00000000000004ca       0x74 ./Core/Src/stm32f4xx_it.o
+ .debug_abbrev  0x000000000000053e      0x1b3 ./Core/Src/syscalls.o
+ .debug_abbrev  0x00000000000006f1       0xbb ./Core/Src/sysmem.o
+ .debug_abbrev  0x00000000000007ac      0x116 ./Core/Src/system_stm32f4xx.o
+ .debug_abbrev  0x00000000000008c2       0x12 ./Core/Startup/startup_stm32f446retx.o
+ .debug_abbrev  0x00000000000008d4      0x20d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_abbrev  0x0000000000000ae1      0x316 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_abbrev  0x0000000000000df7      0x1c4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_abbrev  0x0000000000000fbb      0x2aa ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_abbrev  0x0000000000001265      0x1fb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
+ .debug_abbrev  0x0000000000001460      0x2f4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 
 .debug_aranges  0x0000000000000000      0x768
  .debug_aranges
@@ -3172,143 +3224,145 @@ LOAD /opt/st/stm32cubeide_1.11.0/plugins/com.st.stm32cube.ide.mcu.externaltools.
  .debug_ranges  0x0000000000000448       0x68 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
  .debug_ranges  0x00000000000004b0      0x220 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 
-.debug_macro    0x0000000000000000    0x21900
- .debug_macro   0x0000000000000000      0x1c9 ./Core/Src/main.o
- .debug_macro   0x00000000000001c9      0xa78 ./Core/Src/main.o
- .debug_macro   0x0000000000000c41      0x295 ./Core/Src/main.o
- .debug_macro   0x0000000000000ed6       0x2e ./Core/Src/main.o
- .debug_macro   0x0000000000000f04       0x28 ./Core/Src/main.o
- .debug_macro   0x0000000000000f2c       0x22 ./Core/Src/main.o
- .debug_macro   0x0000000000000f4e       0x8e ./Core/Src/main.o
- .debug_macro   0x0000000000000fdc       0x51 ./Core/Src/main.o
- .debug_macro   0x000000000000102d      0x103 ./Core/Src/main.o
- .debug_macro   0x0000000000001130       0x6a ./Core/Src/main.o
- .debug_macro   0x000000000000119a      0x1df ./Core/Src/main.o
- .debug_macro   0x0000000000001379       0x1c ./Core/Src/main.o
- .debug_macro   0x0000000000001395       0x22 ./Core/Src/main.o
- .debug_macro   0x00000000000013b7       0xd9 ./Core/Src/main.o
- .debug_macro   0x0000000000001490     0x102d ./Core/Src/main.o
- .debug_macro   0x00000000000024bd      0x11f ./Core/Src/main.o
- .debug_macro   0x00000000000025dc    0x16749 ./Core/Src/main.o
- .debug_macro   0x0000000000018d25       0x6d ./Core/Src/main.o
- .debug_macro   0x0000000000018d92     0x367e ./Core/Src/main.o
- .debug_macro   0x000000000001c410      0x174 ./Core/Src/main.o
- .debug_macro   0x000000000001c584       0x5c ./Core/Src/main.o
- .debug_macro   0x000000000001c5e0      0xc90 ./Core/Src/main.o
- .debug_macro   0x000000000001d270      0x9fe ./Core/Src/main.o
- .debug_macro   0x000000000001dc6e      0x115 ./Core/Src/main.o
- .debug_macro   0x000000000001dd83      0x1a0 ./Core/Src/main.o
- .debug_macro   0x000000000001df23       0xa5 ./Core/Src/main.o
- .debug_macro   0x000000000001dfc8      0x16d ./Core/Src/main.o
- .debug_macro   0x000000000001e135      0x287 ./Core/Src/main.o
- .debug_macro   0x000000000001e3bc       0x5f ./Core/Src/main.o
- .debug_macro   0x000000000001e41b      0x236 ./Core/Src/main.o
- .debug_macro   0x000000000001e651      0x132 ./Core/Src/main.o
- .debug_macro   0x000000000001e783      0x29c ./Core/Src/main.o
- .debug_macro   0x000000000001ea1f       0x2e ./Core/Src/main.o
- .debug_macro   0x000000000001ea4d      0x11a ./Core/Src/main.o
- .debug_macro   0x000000000001eb67       0xe8 ./Core/Src/main.o
- .debug_macro   0x000000000001ec4f       0x89 ./Core/Src/main.o
- .debug_macro   0x000000000001ecd8      0x295 ./Core/Src/main.o
- .debug_macro   0x000000000001ef6d      0x126 ./Core/Src/main.o
- .debug_macro   0x000000000001f093       0x58 ./Core/Src/main.o
- .debug_macro   0x000000000001f0eb      0x1c9 ./Core/Src/stm32f4xx_hal_msp.o
- .debug_macro   0x000000000001f2b4      0x1d3 ./Core/Src/stm32f4xx_it.o
- .debug_macro   0x000000000001f487      0x24c ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f6d3       0x4c ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f71f       0x1e ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f73d       0x94 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f7d1       0x3c ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f80d       0x34 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f841       0x57 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001f898      0x341 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fbd9       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fbef       0x43 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fc32       0x34 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fc66       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fc76       0x58 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fcce       0x71 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fd3f       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fd5b      0x12a ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fe85       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fe95       0x35 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001feca       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001feda       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001feea       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001fefa       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x000000000001ff16       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001ff68       0x22 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001ff8a       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001ff9a       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x000000000001ffec       0xd5 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000200c1       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x00000000000200dd       0x3d ./Core/Src/syscalls.o
- .debug_macro   0x000000000002011a       0x35 ./Core/Src/syscalls.o
- .debug_macro   0x000000000002014f      0x12c ./Core/Src/syscalls.o
- .debug_macro   0x000000000002027b       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000020291       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000202a7       0x29 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000202d0       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000202e0      0x241 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000020521       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x000000000002053d       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000002054d       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000000000002055d       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000020573      0x145 ./Core/Src/syscalls.o
- .debug_macro   0x00000000000206b8      0x189 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000020841       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0000000000020857       0xce ./Core/Src/syscalls.o
- .debug_macro   0x0000000000020925       0xff ./Core/Src/sysmem.o
- .debug_macro   0x0000000000020a24      0x23b ./Core/Src/sysmem.o
- .debug_macro   0x0000000000020c5f      0x1ba ./Core/Src/system_stm32f4xx.o
- .debug_macro   0x0000000000020e19      0x21a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_macro   0x0000000000021033      0x1ba ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_macro   0x00000000000211ed      0x1c0 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_macro   0x00000000000213ad      0x1de ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_macro   0x000000000002158b      0x1ba ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
- .debug_macro   0x0000000000021745      0x1bb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+.debug_macro    0x0000000000000000    0x21ac7
+ .debug_macro   0x0000000000000000      0x328 ./Core/Src/main.o
+ .debug_macro   0x0000000000000328      0xa78 ./Core/Src/main.o
+ .debug_macro   0x0000000000000da0      0x295 ./Core/Src/main.o
+ .debug_macro   0x0000000000001035       0x2e ./Core/Src/main.o
+ .debug_macro   0x0000000000001063       0x28 ./Core/Src/main.o
+ .debug_macro   0x000000000000108b       0x22 ./Core/Src/main.o
+ .debug_macro   0x00000000000010ad       0x8e ./Core/Src/main.o
+ .debug_macro   0x000000000000113b       0x51 ./Core/Src/main.o
+ .debug_macro   0x000000000000118c      0x103 ./Core/Src/main.o
+ .debug_macro   0x000000000000128f       0x6a ./Core/Src/main.o
+ .debug_macro   0x00000000000012f9      0x1df ./Core/Src/main.o
+ .debug_macro   0x00000000000014d8       0x1c ./Core/Src/main.o
+ .debug_macro   0x00000000000014f4       0x22 ./Core/Src/main.o
+ .debug_macro   0x0000000000001516       0xd9 ./Core/Src/main.o
+ .debug_macro   0x00000000000015ef     0x102d ./Core/Src/main.o
+ .debug_macro   0x000000000000261c      0x11f ./Core/Src/main.o
+ .debug_macro   0x000000000000273b    0x16749 ./Core/Src/main.o
+ .debug_macro   0x0000000000018e84       0x6d ./Core/Src/main.o
+ .debug_macro   0x0000000000018ef1     0x367e ./Core/Src/main.o
+ .debug_macro   0x000000000001c56f      0x174 ./Core/Src/main.o
+ .debug_macro   0x000000000001c6e3       0x5c ./Core/Src/main.o
+ .debug_macro   0x000000000001c73f      0xc90 ./Core/Src/main.o
+ .debug_macro   0x000000000001d3cf      0x9fe ./Core/Src/main.o
+ .debug_macro   0x000000000001ddcd      0x115 ./Core/Src/main.o
+ .debug_macro   0x000000000001dee2      0x1a0 ./Core/Src/main.o
+ .debug_macro   0x000000000001e082       0xa5 ./Core/Src/main.o
+ .debug_macro   0x000000000001e127      0x16d ./Core/Src/main.o
+ .debug_macro   0x000000000001e294      0x287 ./Core/Src/main.o
+ .debug_macro   0x000000000001e51b       0x5f ./Core/Src/main.o
+ .debug_macro   0x000000000001e57a      0x236 ./Core/Src/main.o
+ .debug_macro   0x000000000001e7b0      0x132 ./Core/Src/main.o
+ .debug_macro   0x000000000001e8e2      0x29c ./Core/Src/main.o
+ .debug_macro   0x000000000001eb7e       0x2e ./Core/Src/main.o
+ .debug_macro   0x000000000001ebac      0x11a ./Core/Src/main.o
+ .debug_macro   0x000000000001ecc6       0xe8 ./Core/Src/main.o
+ .debug_macro   0x000000000001edae       0x89 ./Core/Src/main.o
+ .debug_macro   0x000000000001ee37      0x295 ./Core/Src/main.o
+ .debug_macro   0x000000000001f0cc      0x126 ./Core/Src/main.o
+ .debug_macro   0x000000000001f1f2       0x58 ./Core/Src/main.o
+ .debug_macro   0x000000000001f24a       0x52 ./Core/Src/main.o
+ .debug_macro   0x000000000001f29c       0x1e ./Core/Src/main.o
+ .debug_macro   0x000000000001f2ba       0x3c ./Core/Src/main.o
+ .debug_macro   0x000000000001f2f6       0x34 ./Core/Src/main.o
+ .debug_macro   0x000000000001f32a       0x16 ./Core/Src/main.o
+ .debug_macro   0x000000000001f340       0x35 ./Core/Src/main.o
+ .debug_macro   0x000000000001f375      0x341 ./Core/Src/main.o
+ .debug_macro   0x000000000001f6b6       0x10 ./Core/Src/main.o
+ .debug_macro   0x000000000001f6c6       0x16 ./Core/Src/main.o
+ .debug_macro   0x000000000001f6dc       0x43 ./Core/Src/main.o
+ .debug_macro   0x000000000001f71f       0x34 ./Core/Src/main.o
+ .debug_macro   0x000000000001f753       0x10 ./Core/Src/main.o
+ .debug_macro   0x000000000001f763       0x58 ./Core/Src/main.o
+ .debug_macro   0x000000000001f7bb       0x71 ./Core/Src/main.o
+ .debug_macro   0x000000000001f82c       0x1c ./Core/Src/main.o
+ .debug_macro   0x000000000001f848      0x12a ./Core/Src/main.o
+ .debug_macro   0x000000000001f972       0x10 ./Core/Src/main.o
+ .debug_macro   0x000000000001f982       0x1c ./Core/Src/main.o
+ .debug_macro   0x000000000001f99e       0x52 ./Core/Src/main.o
+ .debug_macro   0x000000000001f9f0       0x22 ./Core/Src/main.o
+ .debug_macro   0x000000000001fa12       0x10 ./Core/Src/main.o
+ .debug_macro   0x000000000001fa22       0x52 ./Core/Src/main.o
+ .debug_macro   0x000000000001fa74       0xd5 ./Core/Src/main.o
+ .debug_macro   0x000000000001fb49       0x1c ./Core/Src/main.o
+ .debug_macro   0x000000000001fb65       0x3d ./Core/Src/main.o
+ .debug_macro   0x000000000001fba2       0x16 ./Core/Src/main.o
+ .debug_macro   0x000000000001fbb8      0x145 ./Core/Src/main.o
+ .debug_macro   0x000000000001fcfd      0x1c9 ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_macro   0x000000000001fec6      0x1d3 ./Core/Src/stm32f4xx_it.o
+ .debug_macro   0x0000000000020099      0x24c ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000202e5       0x4c ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020331       0x94 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000203c5       0x57 ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002041c       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002042c       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002043c       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002044c       0x35 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020481      0x12c ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000205ad       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000205c3       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x00000000000205d9       0x29 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020602       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020612      0x241 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020853       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002086f       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000000000002087f      0x189 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020a08       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020a1e       0xce ./Core/Src/syscalls.o
+ .debug_macro   0x0000000000020aec       0xff ./Core/Src/sysmem.o
+ .debug_macro   0x0000000000020beb      0x23b ./Core/Src/sysmem.o
+ .debug_macro   0x0000000000020e26      0x1ba ./Core/Src/system_stm32f4xx.o
+ .debug_macro   0x0000000000020fe0      0x21a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_macro   0x00000000000211fa      0x1ba ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_macro   0x00000000000213b4      0x1c0 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_macro   0x0000000000021574      0x1de ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_macro   0x0000000000021752      0x1ba ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
+ .debug_macro   0x000000000002190c      0x1bb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 
-.debug_line     0x0000000000000000     0x949a
- .debug_line    0x0000000000000000      0x84a ./Core/Src/main.o
- .debug_line    0x000000000000084a      0x6bc ./Core/Src/stm32f4xx_hal_msp.o
- .debug_line    0x0000000000000f06      0x731 ./Core/Src/stm32f4xx_it.o
- .debug_line    0x0000000000001637      0x7d1 ./Core/Src/syscalls.o
- .debug_line    0x0000000000001e08      0x4c7 ./Core/Src/sysmem.o
- .debug_line    0x00000000000022cf      0x6f0 ./Core/Src/system_stm32f4xx.o
- .debug_line    0x00000000000029bf       0x88 ./Core/Startup/startup_stm32f446retx.o
- .debug_line    0x0000000000002a47      0x956 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_line    0x000000000000339d      0xc05 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_line    0x0000000000003fa2      0xab6 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_line    0x0000000000004a58      0xcde ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_line    0x0000000000005736     0x1369 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
- .debug_line    0x0000000000006a9f     0x29fb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+.debug_line     0x0000000000000000     0x965f
+ .debug_line    0x0000000000000000      0xa0f ./Core/Src/main.o
+ .debug_line    0x0000000000000a0f      0x6bc ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_line    0x00000000000010cb      0x731 ./Core/Src/stm32f4xx_it.o
+ .debug_line    0x00000000000017fc      0x7d1 ./Core/Src/syscalls.o
+ .debug_line    0x0000000000001fcd      0x4c7 ./Core/Src/sysmem.o
+ .debug_line    0x0000000000002494      0x6f0 ./Core/Src/system_stm32f4xx.o
+ .debug_line    0x0000000000002b84       0x88 ./Core/Startup/startup_stm32f446retx.o
+ .debug_line    0x0000000000002c0c      0x956 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_line    0x0000000000003562      0xc05 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_line    0x0000000000004167      0xab6 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_line    0x0000000000004c1d      0xcde ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_line    0x00000000000058fb     0x1369 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
+ .debug_line    0x0000000000006c64     0x29fb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 
-.debug_str      0x0000000000000000    0xc9801
- .debug_str     0x0000000000000000    0xc2581 ./Core/Src/main.o
-                                      0xc2864 (size before relaxing)
- .debug_str     0x00000000000c2581       0x83 ./Core/Src/stm32f4xx_hal_msp.o
+.debug_str      0x0000000000000000    0xc97fa
+ .debug_str     0x0000000000000000    0xc62c2 ./Core/Src/main.o
+                                      0xc65b7 (size before relaxing)
+ .debug_str     0x00000000000c62c2       0x83 ./Core/Src/stm32f4xx_hal_msp.o
                                       0xc2614 (size before relaxing)
- .debug_str     0x00000000000c2604       0xc9 ./Core/Src/stm32f4xx_it.o
+ .debug_str     0x00000000000c6345       0xc9 ./Core/Src/stm32f4xx_it.o
                                       0xc2061 (size before relaxing)
- .debug_str     0x00000000000c26cd     0x5491 ./Core/Src/syscalls.o
+ .debug_str     0x00000000000c640e     0x1749 ./Core/Src/syscalls.o
                                        0x8a67 (size before relaxing)
- .debug_str     0x00000000000c7b5e       0x6b ./Core/Src/sysmem.o
+ .debug_str     0x00000000000c7b57       0x6b ./Core/Src/sysmem.o
                                        0x5da3 (size before relaxing)
- .debug_str     0x00000000000c7bc9       0xdb ./Core/Src/system_stm32f4xx.o
+ .debug_str     0x00000000000c7bc2       0xdb ./Core/Src/system_stm32f4xx.o
                                       0xc208a (size before relaxing)
- .debug_str     0x00000000000c7ca4       0x36 ./Core/Startup/startup_stm32f446retx.o
+ .debug_str     0x00000000000c7c9d       0x36 ./Core/Startup/startup_stm32f446retx.o
                                          0x65 (size before relaxing)
- .debug_str     0x00000000000c7cda      0xb0c ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_str     0x00000000000c7cd3      0xb0c ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                       0xc2c4f (size before relaxing)
- .debug_str     0x00000000000c87e6      0x354 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_str     0x00000000000c87df      0x354 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
                                       0xc295d (size before relaxing)
- .debug_str     0x00000000000c8b3a      0x121 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_str     0x00000000000c8b33      0x121 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
                                       0xc2205 (size before relaxing)
- .debug_str     0x00000000000c8c5b      0x233 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_str     0x00000000000c8c54      0x233 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
                                       0xc24c3 (size before relaxing)
- .debug_str     0x00000000000c8e8e      0x324 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
+ .debug_str     0x00000000000c8e87      0x324 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o
                                       0xc24f6 (size before relaxing)
- .debug_str     0x00000000000c91b2      0x64f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+ .debug_str     0x00000000000c91ab      0x64f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
                                       0xc2a38 (size before relaxing)
 
 .comment        0x0000000000000000       0x50

@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020070  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008da6  00000000  00000000  000200a0  2**0
+ 12 .debug_info   00008d3e  00000000  00000000  000200a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000175e  00000000  00000000  00028e46  2**0
+ 13 .debug_abbrev 00001754  00000000  00000000  00028dde  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000768  00000000  00000000  0002a5a8  2**3
+ 14 .debug_aranges 00000768  00000000  00000000  0002a538  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000006d0  00000000  00000000  0002ad10  2**3
+ 15 .debug_ranges 000006d0  00000000  00000000  0002aca0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00021900  00000000  00000000  0002b3e0  2**0
+ 16 .debug_macro  00021ac7  00000000  00000000  0002b370  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000949a  00000000  00000000  0004cce0  2**0
+ 17 .debug_line   0000965f  00000000  00000000  0004ce37  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000c9801  00000000  00000000  0005617a  2**0
+ 18 .debug_str    000c97fa  00000000  00000000  00056496  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  0011f97b  2**0
+ 19 .comment      00000050  00000000  00000000  0011fc90  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002388  00000000  00000000  0011f9cc  2**2
+ 20 .debug_frame  00002388  00000000  00000000  0011fce0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -448,7 +448,7 @@ int main(void)
       HAL_Delay(2000);
  800057a:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  800057e:	f000 fb19 	bl	8000bb4 <HAL_Delay>
-  {
+      relay_on();
  8000582:	e7f2      	b.n	800056a <main+0x14>
 
 08000584 <_write>:

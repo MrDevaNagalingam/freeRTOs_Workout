@@ -1,13 +1,5 @@
 /* USER CODE BEGIN Header */
 /**
- * GPIO Output pin (e.g., PA5)
-
-Mode: Output Push-Pull
-
-Pull: No Pull
-
-Speed: Low
-
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
@@ -29,7 +21,7 @@ Speed: Low
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,8 +50,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void relay_on(void);
-void relay_off(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/

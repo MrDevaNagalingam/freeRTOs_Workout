@@ -1,13 +1,5 @@
 /* USER CODE BEGIN Header */
 /**
- * GPIO Output pin (e.g., PA5)
-
-Mode: Output Push-Pull
-
-Pull: No Pull
-
-Speed: Low
-
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
@@ -29,7 +21,7 @@ Speed: Low
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
