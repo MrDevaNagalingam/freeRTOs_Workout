@@ -1,0 +1,10 @@
+10:49:16 **** Incremental Build of configuration Debug for project HC-SR04 ****
+make -j8 all 
+arm-none-eabi-size   HC-SR04.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35696	    488	   1752	  37936	   9430	HC-SR04.elf
+Finished building: default.size.stdout
+ 
+
+10:49:17 Build Finished. 0 errors, 0 warnings. (took 731ms)
+
