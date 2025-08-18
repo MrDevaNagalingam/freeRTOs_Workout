@@ -1,5 +1,12 @@
 /* USER CODE BEGIN Header */
 /**
+| LM393 Pin | STM32 Pin        | Function                           |
+| --------- | ---------------- | ---------------------------------- |
+| VCC       | 5V / 3.3V        | Power                              |
+| GND       | GND              | Ground                             |
+| AO        | PA0 (ADC1\_IN0)  | Analog voltage from sensor         |
+| DO        | PA1 (GPIO input) | Digital HIGH/LOW comparator output |
+
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
