@@ -1,26 +1,10 @@
-15:14:18 **** Incremental Build of configuration Debug for project 3-PIn-NTC ****
+16:43:51 **** Incremental Build of configuration Debug for project 3-PIn-NTC ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:119:29: warning: implicit declaration of function 'log' [-Wimplicit-function-declaration]
-  119 |      temperature = (1.0 / ((log(resistance / R0) / BETA) + (1.0 / T0))) - 273.15;
-      |                             ^~~
-../Core/Src/main.c:119:29: warning: incompatible implicit declaration of built-in function 'log'
-../Core/Src/main.c:25:1: note: include '<math.h>' or provide a declaration of 'log'
-   24 | #include <stdio.h>
-  +++ |+#include <math.h>
-   25 | /* USER CODE END Includes */
-arm-none-eabi-gcc -o "3-PIn-NTC.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/3-PIn-NTC/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3-PIn-NTC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 3-PIn-NTC.elf
- 
 arm-none-eabi-size   3-PIn-NTC.elf 
-arm-none-eabi-objdump -h -S  3-PIn-NTC.elf  > "3-PIn-NTC.list"
    text	   data	    bss	    dec	    hex	filename
   35444	    488	   1744	  37676	   932c	3-PIn-NTC.elf
 Finished building: default.size.stdout
  
-Finished building: 3-PIn-NTC.list
- 
 
-15:14:20 Build Finished. 0 errors, 2 warnings. (took 1s.702ms)
+16:43:51 Build Finished. 0 errors, 0 warnings. (took 727ms)
 

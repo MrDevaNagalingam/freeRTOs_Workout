@@ -32,18 +32,13 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define VREF 3.3       // Reference voltage
-#define R_FIXED 10000  // 10kΩ fixed resistor in voltage divider
-#define BETA 3950      // Beta value (check datasheet)
-#define T0 298.15      // Reference temperature (25°C in Kelvin)
-#define R0 10000       // Resistance at 25°C (10kΩ)
+#define TEMP_SENSOR_PIN GPIO_PIN_0   // DO pin connected to PA0
+#define TEMP_SENSOR_PORT GPIOA
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
-uint32_t adcValue;
-float voltage, resistance, temperature;
+char msg[50];
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -106,22 +101,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	    HAL_ADC_Start(&hadc1);
-	    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	    adcValue = HAL_ADC_GetValue(&hadc1);
+      if (HAL_GPIO_ReadPin(TEMP_SENSOR_PORT, TEMP_SENSOR_PIN) == GPIO_PIN_RESET)
+        {
+            printf("Temperature ABOVE threshold!\r\n");
+        }
+        else
+        {
+            printf("Temperature BELOW threshold!\r\n");
+        }
 
-	    // Convert ADC to voltage
-	    voltage = (adcValue * VREF) / 4095.0;
-
-	    // Calculate thermistor resistance
-	    resistance = (R_FIXED * (VREF - voltage)) / voltage;
-
-	    // Steinhart–Hart (simplified Beta formula)
-	    temperature = (1.0 / ((log(resistance / R0) / BETA) + (1.0 / T0))) - 273.15;
-
-	    printf("ADC: %lu, Temp: %.2f C\r\n", adcValue, temperature);
-
-	    HAL_Delay(1000);
+        HAL_Delay(500);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
