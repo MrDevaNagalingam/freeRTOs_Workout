@@ -1,14 +1,108 @@
-17:12:52 **** Incremental Build of configuration Debug for project KY-024 ****
+11:29:22 **** Incremental Build of configuration Debug for project HC-05 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "KY-024.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/KY-024/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="KY-024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: KY-024.elf
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:76:9: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   76 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |         ^~~~~~~~
+../Core/Src/main.c:76:9: warning: incompatible implicit declaration of built-in function 'snprintf'
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+   24 | #include <string.h>
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:79:9: warning: implicit declaration of function 'processCommand' [-Wimplicit-function-declaration]
+   79 |         processCommand(rxBuffer);
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:96:6: warning: conflicting types for 'processCommand'
+   96 | void processCommand(char *cmd)
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:79:9: note: previous implicit declaration of 'processCommand' was here
+   79 |         processCommand(rxBuffer);
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:76:58: warning: '%s' directive output may be truncated writing up to 63 bytes into a region of size 59 [-Wformat-truncation=]
+   76 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |                                                          ^~       ~~~~~~~~
+../Core/Src/main.c:76:9: note: 'snprintf' output between 24 and 87 bytes into a destination of size 80
+   76 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "HC-05.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/HC-05/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HC-05.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HC-05.elf
  
-arm-none-eabi-size   KY-024.elf 
-arm-none-eabi-objdump -h -S  KY-024.elf  > "KY-024.list"
+arm-none-eabi-size   HC-05.elf 
+arm-none-eabi-objdump -h -S  HC-05.elf  > "HC-05.list"
    text	   data	    bss	    dec	    hex	filename
-  34748	    488	   1728	  36964	   9064	KY-024.elf
+  15204	    120	   1792	  17116	   42dc	HC-05.elf
 Finished building: default.size.stdout
  
-Finished building: KY-024.list
+Finished building: HC-05.list
+ 
+11:29:26 **** Incremental Build of configuration Debug for project HC-05 ****
+make -j8 all 
+arm-none-eabi-size   HC-05.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15204	    120	   1792	  17116	   42dc	HC-05.elf
+Finished building: default.size.stdout
+ 
+11:31:11 **** Incremental Build of configuration Debug for project HC-05 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:76:9: warning: implicit declaration of function 'snprintf' [-Wimplicit-function-declaration]
+   76 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |         ^~~~~~~~
+../Core/Src/main.c:76:9: warning: incompatible implicit declaration of built-in function 'snprintf'
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'snprintf'
+   24 | #include <string.h>
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+../Core/Src/main.c:79:9: warning: implicit declaration of function 'processCommand' [-Wimplicit-function-declaration]
+   79 |         processCommand(rxBuffer);
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:96:6: warning: conflicting types for 'processCommand'
+   96 | void processCommand(char *cmd)
+      |      ^~~~~~~~~~~~~~
+../Core/Src/main.c:79:9: note: previous implicit declaration of 'processCommand' was here
+   79 |         processCommand(rxBuffer);
+      |         ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:76:58: warning: '%s' directive output may be truncated writing up to 63 bytes into a region of size 59 [-Wformat-truncation=]
+   76 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |                                                          ^~       ~~~~~~~~
+../Core/Src/main.c:76:9: note: 'snprintf' output between 24 and 87 bytes into a destination of size 80
+   76 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "HC-05.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/HC-05/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HC-05.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HC-05.elf
+ 
+arm-none-eabi-size   HC-05.elf 
+arm-none-eabi-objdump -h -S  HC-05.elf  > "HC-05.list"
+   text	   data	    bss	    dec	    hex	filename
+  15200	    120	   1792	  17112	   42d8	HC-05.elf
+Finished building: default.size.stdout
+ 
+Finished building: HC-05.list
+ 
+11:33:43 **** Incremental Build of configuration Debug for project HC-05 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:77:58: warning: '%s' directive output may be truncated writing up to 63 bytes into a region of size 59 [-Wformat-truncation=]
+   77 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |                                                          ^~       ~~~~~~~~
+../Core/Src/main.c:77:9: note: 'snprintf' output between 24 and 87 bytes into a destination of size 80
+   77 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "HC-05.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/HC-05/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HC-05.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HC-05.elf
+ 
+arm-none-eabi-size   HC-05.elf 
+arm-none-eabi-objdump -h -S  HC-05.elf  > "HC-05.list"
+   text	   data	    bss	    dec	    hex	filename
+  15200	    120	   1792	  17112	   42d8	HC-05.elf
+Finished building: default.size.stdout
+ 
+Finished building: HC-05.list
  
