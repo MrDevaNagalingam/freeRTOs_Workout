@@ -1,10 +1,17 @@
-10:51:47 **** Incremental Build of configuration Debug for project HC-SR04 ****
+11:38:21 **** Incremental Build of configuration Debug for project HC-SR04 ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "HC-SR04.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/HC-SR04/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HC-SR04.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HC-SR04.elf
+ 
 arm-none-eabi-size   HC-SR04.elf 
+arm-none-eabi-objdump -h -S  HC-SR04.elf  > "HC-SR04.list"
    text	   data	    bss	    dec	    hex	filename
   35696	    488	   1752	  37936	   9430	HC-SR04.elf
 Finished building: default.size.stdout
  
+Finished building: HC-SR04.list
+ 
 
-10:51:48 Build Finished. 0 errors, 0 warnings. (took 735ms)
+11:38:22 Build Finished. 0 errors, 0 warnings. (took 1s.78ms)
 

@@ -1,60 +1,38 @@
 /* USER CODE BEGIN Header */
 /**
- ******************************************************************************
- * @file           : main.c
- * @brief          : Main program body
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2025 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
- VCC → 5V (works with 5V supply).
-
- GND → GND.
-
- Trigger → PA0 (GPIO Output).
-
- Echo → PA1 (Timer Input Capture, e.g., TIM2 CH2).
-
- TIM2 (Input Capture)
-
-Channel 2 → PA1 (ECHO pin)
-
-Prescaler: 84-1 (for 1 MHz counter = 1 µs per tick at 84 MHz clock).
-
-Counter Period: 0xFFFF (max).
- */
-
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2025 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <string.h>
 #include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
-uint32_t IC_Val1 = 0;
-uint32_t IC_Val2 = 0;
-uint8_t Is_First_Captured = 0;
-uint32_t Difference = 0;
-float Distance = 0.0;
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define TRIG_PIN GPIO_PIN_0
-#define TRIG_PORT GPIOA
+#define RX_BUFFER_SIZE 64
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -63,11 +41,13 @@ float Distance = 0.0;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-TIM_HandleTypeDef htim2;
-
+UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
+char rxBuffer[RX_BUFFER_SIZE];
+uint8_t rxData;
+uint8_t rxIndex = 0;
 
 /* USER CODE END PV */
 
@@ -75,14 +55,62 @@ UART_HandleTypeDef huart2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
-static void MX_TIM2_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-float HCSR04_Read(void);
+void processCommand(char *cmd);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/* UART receive complete callback */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if(huart->Instance == USART1) // HC-05 UART
+  {
+    if(rxData == '\r' || rxData == '\n')
+    {
+      rxBuffer[rxIndex] = '\0'; // End string
+
+      if(rxIndex > 0) {
+        char dbg[80];
+        snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
+        HAL_UART_Transmit(&huart2, (uint8_t*)dbg, strlen(dbg), HAL_MAX_DELAY);
+
+        processCommand(rxBuffer);
+        rxIndex = 0;
+      }
+    }
+    else
+    {
+      if(rxIndex < RX_BUFFER_SIZE-1)
+      {
+        rxBuffer[rxIndex++] = rxData;
+      }
+    }
+
+    HAL_UART_Receive_IT(&huart1, &rxData, 1); // Restart UART interrupt
+  }
+}
+
+
+void processCommand(char *cmd)
+{
+  if(strcmp(cmd, "led on") == 0) {
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // LED ON
+    char *resp = "LED turned ON\r\n";
+    HAL_UART_Transmit(&huart1, (uint8_t*)resp, strlen(resp), HAL_MAX_DELAY);
+  }
+  else if(strcmp(cmd, "led off") == 0) {
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // LED OFF
+    char *resp = "LED turned OFF\r\n";
+    HAL_UART_Transmit(&huart1, (uint8_t*)resp, strlen(resp), HAL_MAX_DELAY);
+  }
+  else {
+    char *resp = "Unknown command\r\n";
+    HAL_UART_Transmit(&huart1, (uint8_t*)resp, strlen(resp), HAL_MAX_DELAY);
+  }
+}
 /* USER CODE END 0 */
 
 /**
@@ -114,22 +142,25 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
-  MX_TIM2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_2);
+	// Enable UART1 receive interrupt
+	HAL_UART_Receive_IT(&huart1, &rxData, 1);
+
+	char *msg = "Bluetooth Chat Ready\r\n";
+	HAL_UART_Transmit(&huart2, (uint8_t*) msg, strlen(msg), HAL_MAX_DELAY);
+
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	while (1) {
+  while (1)
+  {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		float dist = HCSR04_Read();
-		printf("Distance = %.2f cm\r\n", dist);
-		HAL_Delay(500);
-	}
+  }
   /* USER CODE END 3 */
 }
 
@@ -181,50 +212,35 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief TIM2 Initialization Function
+  * @brief USART1 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_TIM2_Init(void)
+static void MX_USART1_UART_Init(void)
 {
 
-  /* USER CODE BEGIN TIM2_Init 0 */
+  /* USER CODE BEGIN USART1_Init 0 */
 
-  /* USER CODE END TIM2_Init 0 */
+  /* USER CODE END USART1_Init 0 */
 
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_IC_InitTypeDef sConfigIC = {0};
+  /* USER CODE BEGIN USART1_Init 1 */
 
-  /* USER CODE BEGIN TIM2_Init 1 */
-
-  /* USER CODE END TIM2_Init 1 */
-  htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 83;
-  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 0xFFFF;
-  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_IC_Init(&htim2) != HAL_OK)
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 9600;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
-  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
-  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-  sConfigIC.ICFilter = 0;
-  if (HAL_TIM_IC_ConfigChannel(&htim2, &sConfigIC, TIM_CHANNEL_2) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM2_Init 2 */
+  /* USER CODE BEGIN USART1_Init 2 */
 
-  /* USER CODE END TIM2_Init 2 */
+  /* USER CODE END USART1_Init 2 */
 
 }
 
@@ -277,7 +293,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -285,65 +301,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 LD2_Pin */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|LD2_Pin;
+  /*Configure GPIO pin : LD2_Pin */
+  GPIO_InitStruct.Pin = LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 4 */
-// Send trigger pulse
-void HCSR04_Trigger(void) {
-	HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_SET);
-	HAL_Delay(0.01); // 10us
-	HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);
-}
-
-// Timer callback (called on capture event)
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
-	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2) {
-		if (Is_First_Captured == 0) {
-			IC_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
-			Is_First_Captured = 1;
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2,
-					TIM_INPUTCHANNELPOLARITY_FALLING);
-		} else if (Is_First_Captured == 1) {
-			IC_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
-
-			if (IC_Val2 > IC_Val1)
-				Difference = IC_Val2 - IC_Val1;
-			else
-				Difference = (0xFFFF - IC_Val1) + IC_Val2;
-
-			Distance = (Difference * 0.03) / 2;  // speed of sound = 340 m/s
-			Is_First_Captured = 0;
-
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_2,
-					TIM_INPUTCHANNELPOLARITY_RISING);
-			__HAL_TIM_DISABLE_IT(htim, TIM_IT_CC2);
-		}
-	}
-}
-
-float HCSR04_Read(void) {
-	HCSR04_Trigger();
-	__HAL_TIM_ENABLE_IT(&htim2, TIM_IT_CC2);
-	HAL_Delay(60); // wait for measurement
-	return Distance;
-}
-
-int _write(int file, char *ptr, int len) {
-	(void) file;
-	int DataIdx;
-
-	for (DataIdx = 0; DataIdx < len; DataIdx++) {
-		ITM_SendChar(*ptr++);
-	}
-	return len;
-}
 
 /* USER CODE END 4 */
 
@@ -354,10 +321,11 @@ int _write(int file, char *ptr, int len) {
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-	/* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
-	while (1) {
-	}
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 

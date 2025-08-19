@@ -1,4 +1,4 @@
-10:57:15 **** Incremental Build of configuration Debug for project MQ135 ****
+11:37:38 **** Build of configuration Debug for project MQ135 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "MQ135.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/MQ135/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ135.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
@@ -13,5 +13,5 @@ Finished building: default.size.stdout
 Finished building: MQ135.list
  
 
-10:57:16 Build Finished. 0 errors, 0 warnings. (took 1s.30ms)
+11:37:39 Build Finished. 0 errors, 0 warnings. (took 1s.128ms)
 

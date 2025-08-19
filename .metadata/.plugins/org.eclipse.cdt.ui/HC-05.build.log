@@ -1,24 +1,10 @@
-11:33:43 **** Incremental Build of configuration Debug for project HC-05 ****
+11:39:18 **** Incremental Build of configuration Debug for project HC-05 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
-../Core/Src/main.c:77:58: warning: '%s' directive output may be truncated writing up to 63 bytes into a region of size 59 [-Wformat-truncation=]
-   77 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
-      |                                                          ^~       ~~~~~~~~
-../Core/Src/main.c:77:9: note: 'snprintf' output between 24 and 87 bytes into a destination of size 80
-   77 |         snprintf(dbg, sizeof(dbg), "Received from Phone: %s\r\n", rxBuffer);
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "HC-05.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/HC-05/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HC-05.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: HC-05.elf
- 
 arm-none-eabi-size   HC-05.elf 
-arm-none-eabi-objdump -h -S  HC-05.elf  > "HC-05.list"
    text	   data	    bss	    dec	    hex	filename
   15200	    120	   1792	  17112	   42d8	HC-05.elf
 Finished building: default.size.stdout
  
-Finished building: HC-05.list
- 
 
-11:33:44 Build Finished. 0 errors, 1 warnings. (took 1s.85ms)
+11:39:19 Build Finished. 0 errors, 0 warnings. (took 726ms)
 
