@@ -1,7 +1,7 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FreeRTO_test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Relay Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MQ135 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HC-SR04 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LM393 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3-PIn-NTC Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:KY-024 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HC-05 Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FreeRTO_test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Relay Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MQ135 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HC-SR04 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:LM393 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3-PIn-NTC Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:KY-024 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HC-05 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Servo-motor Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3-PIn-NTC\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3-PIn-NTC\ Debug/activeLaunchTarget=null\:---
