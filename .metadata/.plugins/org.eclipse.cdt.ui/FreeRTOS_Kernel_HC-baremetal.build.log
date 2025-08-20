@@ -1,0 +1,10 @@
+17:40:28 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_HC-baremetal ****
+make -j8 all 
+arm-none-eabi-size   FreeRTOS_Kernel_HC-baremetal.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36608	    488	  78968	 116064	  1c560	FreeRTOS_Kernel_HC-baremetal.elf
+Finished building: default.size.stdout
+ 
+
+17:40:29 Build Finished. 0 errors, 0 warnings. (took 783ms)
+
