@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/${ProjName}/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F}"/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
@@ -20,5 +21,8 @@
 		<item key="y" value="39"/>
 		<item key="width" value="625"/>
 		<item key="height" value="720"/>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="askReindex.detail" value="0"/>
 	</section>
 </section>

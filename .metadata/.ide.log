@@ -14850,3 +14850,11 @@
 2025-08-20 16:51:08,852 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] StartTraceHandler.execute(), success : Collect=true
 2025-08-20 17:02:59,874 [ERROR] ConfigurationRetriever:140 - IOException on connection: Read timed out
 2025-08-20 17:03:02,621 [ERROR] ConfigurationRetriever:140 - IOException on connection: Read timed out
+2025-08-20 17:54:14,644 [INFO] JxBrowserEngine:114 - Initiate JxBrowser Engine with user profile folder
+2025-08-20 17:54:15,663 [INFO] WebAppUi:459 - Close the Jxbrowser engine manually
+2025-08-20 17:54:15,667 [INFO] WebAppUi:462 - Profiles folder deleted
+2025-08-20 17:54:15,989 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2025-08-20 17:54:40,429 [INFO] Activator:179 - 
+
+
+2025-08-20 17:54:40,431 [INFO] Activator:180 - !SESSION log4j initialized
