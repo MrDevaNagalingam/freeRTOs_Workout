@@ -25,6 +25,8 @@ static volatile uint32_t ic_val1=0, ic_val2=0, ic_diff=0;
 static volatile uint8_t  ic_first = 0;
 static volatile float    g_distance_cm = 0.0f;
 
+/* Keep SystemCoreClock for FreeRTOS tick setup */
+//uint32_t SystemCoreClock = 84000000u;
 
 /* ==================== Prototypes ==================== */
 static void clock_init_84MHz(void);
