@@ -19,7 +19,7 @@ Prescaler: 84-1 (for 1 MHz counter = 1 µs per tick at 84 MHz clock).
 
 Counter Period: 0xFFFF (max).
 
-================= BLUETOOTH  =================
+================= BLUETOOTH TASK =================
  VCC → 5V (works with 5V supply).
 
  GND → GND.
@@ -30,19 +30,7 @@ Counter Period: 0xFFFF (max).
 
  enable the NVIC
 
- set bardrate as 9600 is default for bluetooth
-
- ================= Ky-024  =================
-
-  VCC → 3V
-
- GND → GND.
-
- PB0 -> DO (gpio input)
-
- PA4 -> AO (adc1_in4)
-
-  **/
+ set bardrate as 9600 is default for bluetooth **/
 
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
