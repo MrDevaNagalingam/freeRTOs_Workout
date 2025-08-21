@@ -17838,3 +17838,21 @@
 2025-08-21 12:45:37,973 [ERROR] ConfigurationRetriever:140 - IOException on connection: sw-center.st.com
 2025-08-21 12:45:37,974 [ERROR] ConfigurationRetriever:140 - IOException on connection: sw-center.st.com
 2025-08-21 12:45:37,975 [ERROR] ConfigurationRetriever:140 - IOException on connection: sw-center.st.com
+2025-08-21 14:05:30,992 [INFO] JxBrowserEngine:114 - Initiate JxBrowser Engine with user profile folder
+2025-08-21 14:05:31,921 [INFO] WebAppUi:459 - Close the Jxbrowser engine manually
+2025-08-21 14:05:31,925 [INFO] WebAppUi:462 - Profiles folder deleted
+2025-08-21 14:05:32,246 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2025-08-21 16:02:35,969 [INFO] Activator:179 - 
+
+
+2025-08-21 16:02:35,970 [INFO] Activator:180 - !SESSION log4j initialized
+2025-08-21 16:03:00,090 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2025-08-21 16:03:00,091 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2025-08-21 16:03:00,091 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2025-08-21 17:55:12,552 [INFO] Activator:179 - 
+
+
+2025-08-21 17:55:12,553 [INFO] Activator:180 - !SESSION log4j initialized
+2025-08-21 17:55:36,986 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2025-08-21 17:55:36,987 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2025-08-21 17:55:36,987 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
