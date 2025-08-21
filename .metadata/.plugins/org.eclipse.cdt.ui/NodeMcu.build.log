@@ -1,0 +1,10 @@
+12:01:24 **** Incremental Build of configuration Debug for project NodeMcu ****
+make -j8 all 
+arm-none-eabi-size   NodeMcu.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33104	    488	   1728	  35320	   89f8	NodeMcu.elf
+Finished building: default.size.stdout
+ 
+
+12:01:24 Build Finished. 0 errors, 0 warnings. (took 780ms)
+

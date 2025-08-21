@@ -1,4 +1,4 @@
-16:42:37 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_HC ****
+12:49:03 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_HC ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_HC/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_HC/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_HC/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "FreeRTOS_Kernel_HC.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_HC/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS_Kernel_HC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,11 +7,11 @@ Finished building target: FreeRTOS_Kernel_HC.elf
 arm-none-eabi-size   FreeRTOS_Kernel_HC.elf 
 arm-none-eabi-objdump -h -S  FreeRTOS_Kernel_HC.elf  > "FreeRTOS_Kernel_HC.list"
    text	   data	    bss	    dec	    hex	filename
-  50120	    496	  79176	 129792	  1fb00	FreeRTOS_Kernel_HC.elf
+  53148	    496	  79256	 132900	  20724	FreeRTOS_Kernel_HC.elf
 Finished building: default.size.stdout
  
 Finished building: FreeRTOS_Kernel_HC.list
  
 
-16:42:38 Build Finished. 0 errors, 0 warnings. (took 1s.175ms)
+12:49:04 Build Finished. 0 errors, 0 warnings. (took 1s.236ms)
 

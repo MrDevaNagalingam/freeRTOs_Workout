@@ -69,9 +69,14 @@ uint8_t Is_First_Captured = 0;
 uint32_t Difference = 0;
 float Distance = 0.0;
 
+/* ================= KY-024 VARIABLES ================= */
+uint32_t adcValue;
+float voltage;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+
 TIM_HandleTypeDef htim2;
 
 UART_HandleTypeDef huart1;
@@ -87,6 +92,7 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 void processCommand(char *cmd);
@@ -96,6 +102,7 @@ float HCSR04_Read(void);
 /* ================= TASK PROTOTYPES ================= */
 void BluetoothTask(void *pvParameters);
 void UltrasonicTask(void *pvParameters);
+void Ky024Task(void *pvParameters);
 
 /* USER CODE END PFP */
 
@@ -135,6 +142,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
   /* Start Timer for Input Capture */
@@ -146,9 +154,14 @@ int main(void)
      /* Create FreeRTOS tasks */
      xTaskCreate(BluetoothTask, "BT_Task", 256, NULL, 2, NULL);
      xTaskCreate(UltrasonicTask, "US_Task", 256, NULL, 1, NULL);
+     xTaskCreate(Ky024Task, "Ky024_Task", 256, NULL, 1, NULL);
 
+     printf("System Initialized\r\n");
      /* Start scheduler */
      vTaskStartScheduler();
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -207,6 +220,58 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc1.Init.ScanConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -354,6 +419,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PB0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
@@ -383,10 +458,37 @@ void UltrasonicTask(void *pvParameters)
         printf("Distance = %.2f cm\r\n", dist);
 //        snprintf(buf, sizeof(buf), "Distance = %.2f cm\r\n", dist);
 //        HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
-        vTaskDelay(pdMS_TO_TICKS(500)); // 500 ms delay
+        vTaskDelay(pdMS_TO_TICKS(100)); // 500 ms delay
     }
 }
 
+/* ================= Ky-024 TASK ================= */
+void Ky024Task(void *pvParameters) {
+	for (;;)
+	{
+// Read Analog output from KY-024
+		HAL_ADC_Start(&hadc1);
+		HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+		adcValue = HAL_ADC_GetValue(&hadc1);
+
+		// Convert to voltage (assuming 12-bit ADC and 3.3V ref)
+		voltage = (adcValue * 3.3) / 4095.0;
+
+		// Print ADC value and voltage
+		printf("ADC: %lu, Voltage: %.2f V\r\n", adcValue, voltage);
+
+		// Read Digital Output
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET) {
+			printf("Magnet NOT detected\r\n");
+
+		} else {
+			printf("Magnet DETECTED!\r\n");
+
+		}
+
+		vTaskDelay(1000);
+	}
+}
 /* ================= UART CALLBACK ================= */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -477,6 +579,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
         }
     }
 }
+
 
 int _write(int file, char *ptr, int len) {
 	(void) file;

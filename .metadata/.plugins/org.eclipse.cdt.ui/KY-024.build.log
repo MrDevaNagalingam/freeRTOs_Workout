@@ -1,17 +1,10 @@
-17:12:52 **** Incremental Build of configuration Debug for project KY-024 ****
+12:34:54 **** Incremental Build of configuration Debug for project KY-024 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "KY-024.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/KY-024/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="KY-024.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: KY-024.elf
- 
 arm-none-eabi-size   KY-024.elf 
-arm-none-eabi-objdump -h -S  KY-024.elf  > "KY-024.list"
    text	   data	    bss	    dec	    hex	filename
-  34748	    488	   1728	  36964	   9064	KY-024.elf
+  34740	    488	   1728	  36956	   905c	KY-024.elf
 Finished building: default.size.stdout
  
-Finished building: KY-024.list
- 
 
-17:12:53 Build Finished. 0 errors, 0 warnings. (took 1s.796ms)
+12:34:54 Build Finished. 0 errors, 0 warnings. (took 785ms)
 

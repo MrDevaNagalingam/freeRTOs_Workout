@@ -95,7 +95,7 @@ int main(void)
   uint32_t adcValue;
   float voltage;
   /* USER CODE END 2 */
-  printf( "Magnet NOT detected\r\n");
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
