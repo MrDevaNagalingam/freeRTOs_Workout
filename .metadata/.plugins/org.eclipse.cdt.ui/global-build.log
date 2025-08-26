@@ -1,84 +1,35 @@
-12:57:42 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
+16:25:36 **** Incremental Build of configuration Debug for project FreeRTOS_kernel_test ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'StartTempTask':
-../Core/Src/main.c:307:9: error: cannot convert to a pointer type
-  307 |         HAL_UART_Transmit(&huart2, (uint8_t*)Temperature, strlen(Temperature), HAL_MAX_DELAY);
-      |         ^~~~~~~~~~~~~~~~~
-../Core/Src/main.c:307:66: error: incompatible type for argument 1 of 'strlen'
-  307 |         HAL_UART_Transmit(&huart2, (uint8_t*)Temperature, strlen(Temperature), HAL_MAX_DELAY);
-      |                                                                  ^~~~~~~~~~~
-      |                                                                  |
-      |                                                                  float
-In file included from ../Core/Src/main.c:27:
-/opt/st/stm32cubeide_1.11.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/arm-none-eabi/include/string.h:41:17: note: expected 'const char *' but argument is of type 'float'
-   41 | size_t  strlen (const char *);
-      |                 ^~~~~~~~~~~~
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-12:59:33 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'StartTempTask':
-../Core/Src/main.c:307:18: error: 'msg' undeclared (first use in this function)
-  307 |         snprintf(msg, sizeof(msg), "Temperature: %.2f C\r\n", Temperature);
-      |                  ^~~
-../Core/Src/main.c:307:18: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
-"make -j8 all" terminated with exit code 2. Build might be incomplete.
-12:59:51 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "FreeRTOS_Kernel_temperature.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS_Kernel_temperature.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: FreeRTOS_Kernel_temperature.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "FreeRTOS_kernel_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS_kernel_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS_kernel_test.elf
  
-arm-none-eabi-size   FreeRTOS_Kernel_temperature.elf 
-arm-none-eabi-objdump -h -S  FreeRTOS_Kernel_temperature.elf  > "FreeRTOS_Kernel_temperature.list"
+arm-none-eabi-size   FreeRTOS_kernel_test.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS_kernel_test.elf  > "FreeRTOS_kernel_test.list"
    text	   data	    bss	    dec	    hex	filename
-  41304	    492	  78884	 120680	  1d768	FreeRTOS_Kernel_temperature.elf
+  20508	     28	  78940	  99476	  18494	FreeRTOS_kernel_test.elf
 Finished building: default.size.stdout
  
-Finished building: FreeRTOS_Kernel_temperature.list
+Finished building: FreeRTOS_kernel_test.list
  
-13:00:12 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
+16:25:57 **** Incremental Build of configuration Debug for project FreeRTOS_kernel_test ****
 make -j8 all 
-arm-none-eabi-size   FreeRTOS_Kernel_temperature.elf 
+arm-none-eabi-size   FreeRTOS_kernel_test.elf 
    text	   data	    bss	    dec	    hex	filename
-  41304	    492	  78884	 120680	  1d768	FreeRTOS_Kernel_temperature.elf
+  20508	     28	  78940	  99476	  18494	FreeRTOS_kernel_test.elf
 Finished building: default.size.stdout
  
-13:00:17 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
+16:27:26 **** Incremental Build of configuration Debug for project FreeRTOS_kernel_test ****
 make -j8 all 
-arm-none-eabi-size   FreeRTOS_Kernel_temperature.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "FreeRTOS_kernel_test.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/FreeRTOS_kernel_test/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS_kernel_test.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRTOS_kernel_test.elf
+ 
+arm-none-eabi-size   FreeRTOS_kernel_test.elf 
+arm-none-eabi-objdump -h -S  FreeRTOS_kernel_test.elf  > "FreeRTOS_kernel_test.list"
    text	   data	    bss	    dec	    hex	filename
-  41304	    492	  78884	 120680	  1d768	FreeRTOS_Kernel_temperature.elf
+  20508	     28	  78940	  99476	  18494	FreeRTOS_kernel_test.elf
 Finished building: default.size.stdout
  
-13:01:22 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "FreeRTOS_Kernel_temperature.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS_Kernel_temperature.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: FreeRTOS_Kernel_temperature.elf
- 
-arm-none-eabi-size   FreeRTOS_Kernel_temperature.elf 
-arm-none-eabi-objdump -h -S  FreeRTOS_Kernel_temperature.elf  > "FreeRTOS_Kernel_temperature.list"
-   text	   data	    bss	    dec	    hex	filename
-  46072	    496	  79024	 125592	  1ea98	FreeRTOS_Kernel_temperature.elf
-Finished building: default.size.stdout
- 
-Finished building: FreeRTOS_Kernel_temperature.list
- 
-13:04:39 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_temperature ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/include" -I"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "FreeRTOS_Kernel_temperature.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/boobathi/new_stm32_workspace/FreeRTOS_Kernel_temperature/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRTOS_Kernel_temperature.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: FreeRTOS_Kernel_temperature.elf
- 
-arm-none-eabi-size   FreeRTOS_Kernel_temperature.elf 
-arm-none-eabi-objdump -h -S  FreeRTOS_Kernel_temperature.elf  > "FreeRTOS_Kernel_temperature.list"
-   text	   data	    bss	    dec	    hex	filename
-  46072	    496	  79024	 125592	  1ea98	FreeRTOS_Kernel_temperature.elf
-Finished building: default.size.stdout
- 
-Finished building: FreeRTOS_Kernel_temperature.list
+Finished building: FreeRTOS_kernel_test.list
  
