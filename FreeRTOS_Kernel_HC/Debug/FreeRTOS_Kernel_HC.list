@@ -1460,10 +1460,10 @@ int main(void)
  8001100:	490f      	ldr	r1, [pc, #60]	; (8001140 <main+0x98>)
  8001102:	4810      	ldr	r0, [pc, #64]	; (8001144 <main+0x9c>)
  8001104:	f004 ffd2 	bl	80060ac <xTaskCreate>
-     xTaskCreate(Ky024Task, "Ky024_Task", 256, NULL, 1, NULL);
+     xTaskCreate(Ky024Task, "Ky024_Task", 256, NULL, 2, NULL);
  8001108:	2300      	movs	r3, #0
  800110a:	9301      	str	r3, [sp, #4]
- 800110c:	2301      	movs	r3, #1
+ 800110c:	2302      	movs	r3, #2
  800110e:	9300      	str	r3, [sp, #0]
  8001110:	2300      	movs	r3, #0
  8001112:	f44f 7280 	mov.w	r2, #256	; 0x100
