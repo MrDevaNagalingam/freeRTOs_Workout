@@ -25,6 +25,7 @@
 #include "task.h"
 #include "queue.h"
 #include <string.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,10 +47,13 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
-QueueHandle_t messageQueue;
+QueueHandle_t buttonQueue;   // Queue handle
 
-TaskHandle_t senderHandle;
-TaskHandle_t receiverHandle;
+typedef struct
+{
+    uint8_t ledState;
+    uint32_t timestamp;
+} ButtonEvent;
 
 /* USER CODE END PV */
 
@@ -59,8 +63,8 @@ static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
-void senderTask(void *parameters);
-void receiverTask(void *parameters);
+void LED_Task(void *pvParameters);
+void UART_Task(void *pvParameters);
 
 /* USER CODE END PFP */
 
@@ -100,12 +104,15 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  messageQueue = xQueueCreate(5, sizeof(char *));
-  configASSERT(messageQueue != NULL);
+  // Create Queue - can hold 10 ButtonEvent structs
+  buttonQueue = xQueueCreate(10, sizeof(ButtonEvent));
+  configASSERT(buttonQueue != NULL);
 
-  xTaskCreate(senderTask, "Sender", 256, NULL, 2, &senderHandle);
-  xTaskCreate(receiverTask, "Receiver", 256, NULL, 1, &receiverHandle);
+  // Create Tasks
+  xTaskCreate(LED_Task, "LED Task", 256, NULL, 2, NULL);
+  xTaskCreate(UART_Task, "UART Task", 256, NULL, 2, NULL);
 
+  // Start Scheduler
   vTaskStartScheduler();
   /* USER CODE END 2 */
 
@@ -231,37 +238,56 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
 }
 
 /* USER CODE BEGIN 4 */
-
-/* Sender Task - sends messages to queue */
-void senderTask(void *parameters)
+void LED_Task(void *pvParameters)
 {
-    const char *msg1 = "Hello from Queue 1 message 1\r\n";
-    const char *msg2 = "Hello from Queue 2 message 2\r\n";
+    ButtonEvent evt;
 
     for (;;)
     {
-        xQueueSend(messageQueue, &msg1, portMAX_DELAY);
-        vTaskDelay(pdMS_TO_TICKS(1000));
-
-        xQueueSend(messageQueue, &msg2, portMAX_DELAY);
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        if (xQueueReceive(buttonQueue, &evt, portMAX_DELAY) == pdPASS)
+        {
+            // Toggle LED based on received state
+            HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, evt.ledState);
+        }
     }
 }
 
-/* Receiver Task - receives and prints messages */
-void receiverTask(void *parameters)
+void UART_Task(void *pvParameters)
 {
-    char *receivedMsg;
+    ButtonEvent evt;
+    char msg[50];
 
     for (;;)
     {
-        if (xQueueReceive(messageQueue, &receivedMsg, portMAX_DELAY) == pdPASS)
+        if (xQueueReceive(buttonQueue, &evt, portMAX_DELAY) == pdPASS)
         {
-            HAL_UART_Transmit(&huart2, (uint8_t *)receivedMsg, strlen(receivedMsg), HAL_MAX_DELAY);
+            snprintf(msg, sizeof(msg), "Button pressed at %lu ms\r\n", evt.timestamp);
+            HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
         }
+    }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if (GPIO_Pin == B1_Pin)
+    {
+        static uint8_t state = 0;
+        ButtonEvent evt;
+
+        state ^= 1;
+        evt.ledState = state;
+        evt.timestamp = HAL_GetTick();
+
+        BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+        xQueueSendFromISR(buttonQueue, &evt, &xHigherPriorityTaskWoken);
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
     }
 }
 /* USER CODE END 4 */

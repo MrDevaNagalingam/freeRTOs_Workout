@@ -1,0 +1,10 @@
+14:37:08 **** Incremental Build of configuration Debug for project FreeRTOS_Kernel_Mutexes ****
+make -j8 all 
+arm-none-eabi-size   FreeRTOS_Kernel_Mutexes.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23188	     28	  78932	 102148	  18f04	FreeRTOS_Kernel_Mutexes.elf
+Finished building: default.size.stdout
+ 
+
+14:37:09 Build Finished. 0 errors, 0 warnings. (took 835ms)
+
